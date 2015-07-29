@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>SnippetFile1</Title>
+      <Author>a9056021@gmail.com</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>lj</Shortcut>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal Editable="false">
+          <ID>ColumnName</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>JoinTableNickName</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>d</Default>
+          <Function>
+          </Function>
+        </Literal>
+        <Literal Editable="true">
+          <ID>JoinTableName</ID>
+          <ToolTip>
+          </ToolTip>
+          <Default>
+          </Default>
+          <Function>
+          </Function>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp" Delimiter="$"><![CDATA[                    
+join $JoinTableNickName$ in $JoinTableName$ 
+    on 
+        new { ID = .$ColumnName$ } 
+        equals 
+        new { ID = $JoinTableNickName$.$ColumnName$ }
+    into LeftObject
+from $JoinTableNickName$ in LeftObject.DefaultIfEmpty()]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
